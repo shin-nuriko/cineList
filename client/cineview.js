@@ -53,7 +53,7 @@ socket.on('cine list', function(msg){
 		saveList(cineList);
 		loadCineList();
 
-		setInterval('loadCineList()', 9000);
+		setInterval('loadCineList()', 60000);
 
 });
 

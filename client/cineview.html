@@ -28,6 +28,59 @@ ul {
     max-width: 140px;
     max-height: 100px;
 }
+
+@-moz-keyframes ticker {
+from {left:0;}
+to {left:-620px;}
+}
+
+@-webkit-keyframes ticker {
+from {left:0;}
+to {left:-620px;}
+}
+
+@-o-keyframes ticker {
+from {left:0;}
+to {left:-620px;}
+}
+
+@keyframes ticker {
+from {left:0;}
+to {left:-620px;}
+}
+
+
+
+#screen_bottom {
+    width: 600px;
+    height: 30px;
+    overflow: hidden;
+	position: relative;
+}
+.ticker {
+    display: block;
+    width: 1240px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-duration: 5s;
+    -moz-animation-name: ticker;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-name: ticker;
+    -o-animation-iteration-count: infinite;
+    -o-animation-timing-function: linear;
+    -o-animation-duration: 5s;
+    -o-animation-name: ticker;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    animation-name: ticker;
+}
 	</style>
 
 	<body>
@@ -44,7 +97,13 @@ ul {
 			</div>
 		</div>
 		<div id="screen_bottom">
-			<div class="ticker"></div>
+			<div class="ticker">
+				<div>the quick brown fox jumped over the lazy dog
+					 so lalala dididid do dumm
+					 I got to the third line of text
+					 and to the 4th.
+				</div>
+			</div>
 		</div>
 		<div id="hiddenlist" style="display:none"></div>
 	</body>

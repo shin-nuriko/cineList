@@ -1,7 +1,30 @@
+var fs = require("fs");
+var buf = new Buffer(1024);
+var list_bytes = 0;
+
 module.exports = {
 	cineList : function () {
-	  console.log('inside getlist.js cineList');
-	  var list = '{"cine0":{"title":"Fight Club","poster":"images/fightclub.jpeg","text":{"0":"","1":"","2":"","3":""},"id":0},"cine1":{"title":"Gone With The Wind","poster":"images/gonewiththewind.jpeg","text":{"0":"","1":"","2":"","3":""},"id":1},"cine2":{"title":"Princess Bride","poster":"images/princessbride.jpeg","text":{"0":"","1":"","2":"","3":""},"id":2}}';
+		fs.open('./cine.json', 'r+', 
+			function(err, fd) {
+			   if (err) {
+			       return console.error(err);
+			   }
+
+			   fs.read(fd, buf, 0, buf.length, 0, function(err, bytes){
+			      if (err){
+			         console.log(err);
+			      }
+			      list_bytes = bytes;
+			      console.log(bytes + " bytes read");
+			      
+			      // Print only read bytes to avoid junk.
+			      if(bytes > 0){
+			      	list_bytes = bytes;
+			      }
+			   });
+			});
+
+	  var list = buf.slice(0, list_bytes).toString();  
 	  return(list);
 	},
 	cineView : function (req, res, next) {
