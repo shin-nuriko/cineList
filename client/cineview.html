@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Now Showing</title>
+	</head>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script src="/cineview.js"></script>
+
+	<style>
+#screen_top {
+	display:-webkit-inline-box;
+	display: -moz-inline-box;
+}
+ul {
+    list-style-type: none;
+    margin: 2px;
+    padding: 0;
+}
+#left img {
+    max-width: 450px;
+    min-width: 450px;
+    max-height: 300px;
+    min-height: 300px;
+}
+#right img {
+    max-width: 140px;
+    max-height: 100px;
+}
+	</style>
+
+	<body>
+		<div id="screen_top">
+			<div id="left">
+				<img id="cine0">
+			</div>
+			<div id="right">
+				<ul>
+					<li><img id="cine1"></li>
+					<li><img id="cine2"></li>
+					<li><img id="cine3"></li>
+				</ul>
+			</div>
+		</div>
+		<div id="screen_bottom">
+			<div class="ticker"></div>
+		</div>
+		<div id="hiddenlist" style="display:none"></div>
+	</body>
+</html>
