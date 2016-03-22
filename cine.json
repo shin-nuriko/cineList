@@ -3,10 +3,10 @@
       "title" : "Fight Club",
 	  "poster" : "images/fightclub.jpeg",
 	  "text": {
-	  		"0": "",
-	  		"1": "",
-			"2": "",
-			"3": ""
+	  		"line0": "orem ipsum dolor sit amet, consectetuer adipiscing elit.",
+	  		"line1": "In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo",
+			"line2": "Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,",
+			"line3": "Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus"
 	  	},
 	  "id": 0
    },
@@ -14,10 +14,10 @@
       "title" : "Gone With The Wind",
 	  "poster" : "images/gonewiththewind.jpeg",
 	  "text": {
-	  		"0": "",
-	  		"1": "",
-			"2": "",
-			"3": ""
+	  		"line0": "orem ipsum dolor sit amet, consectetuer adipiscing elit.",
+	  		"line1": "In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo",
+			"line2": "Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,",
+			"line3": "Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus"
 	  	},
 	  "id": 1
    },
@@ -25,10 +25,10 @@
       "title" : "Princess Bride",
 	  "poster" : "images/princessbride.jpeg",
 	  "text": {
-	  		"0": "",
-	  		"1": "",
-			"2": "",
-			"3": ""
+	  		"line0": "orem ipsum dolor sit amet, consectetuer adipiscing elit.",
+	  		"line1": "In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo",
+			"line2": "Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,",
+			"line3": "Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus"
 	  	},
 	  "id": 2
    },
@@ -36,10 +36,10 @@
       "title" : "Star Wars",
 	  "poster" : "images/starwars.jpeg",
 	  "text": {
-	  		"0": "",
-	  		"1": "",
-			"2": "",
-			"3": ""
+	  		"line0": "orem ipsum dolor sit amet, consectetuer adipiscing elit.",
+	  		"line1": "In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo",
+			"line2": "Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,",
+			"line3": "Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus"
 	  	},
 	  "id": 3
    }

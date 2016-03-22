@@ -1,5 +1,5 @@
 var fs = require("fs");
-var buf = new Buffer(1024);
+var buf = new Buffer(128000);
 var list_bytes = 0;
 
 module.exports = {

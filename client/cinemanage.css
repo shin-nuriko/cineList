@@ -1,0 +1,75 @@
+body {
+    font-family: sans-serif;
+    font-size: 13px;
+}
+
+.shows_list {
+    display: block;
+    float: left;
+    width: 800px;
+}
+
+.item {
+    display: block;
+    position: relative;
+    max-width: 800px;
+    float: left;
+}
+
+.poster img {
+    max-width: 150px;
+    margin-left: 10px;
+}
+
+.show {
+    display: -webkit-inline-box;
+    float: left;
+    margin: 3px;
+    padding: 5px;
+}
+
+.info {
+    width: 500px;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form {
+    float: left;
+    width: 700px;
+}
+
+.hide {
+    display: none;
+}
+
+input {
+    width: 400px;
+}
+input[type="submit"] {
+    width: 150px;
+    background: #eee;
+    border-bottom-left-radius: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+	float: right;
+    margin-right: 10px;
+    margin-bottom: 7px;
+}
+
+.action i {
+    font-size: 18px;
+    display: block;
+    color: #44f;
+    margin-left: 2px;
+    padding: 2px;
+}
+
+.shows_list>.item:nth-child(even) {
+    background: #eef;
+}

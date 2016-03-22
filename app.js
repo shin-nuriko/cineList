@@ -12,11 +12,22 @@ app.get('/', function (req, res) {
    res.sendFile( __dirname + "/client/" + "cineview.html" );
 })
 
-app.get('/cineview.js',  function (req, res) {
-   res.sendFile( __dirname + "/client/" + "cineview.js" );
+app.get('/manage', function (req, res) {
+   res.sendFile( __dirname + "/client/" + "cinemanage.html" );
 })
-app.get('/cineview.css',  function (req, res) {
-   res.sendFile( __dirname + "/client/" + "cineview.css" );
+
+app.get('/getlist', function (req, res) {
+   res.send(cine.cineList());
+})
+
+app.get('/js/*', function (req, res) {
+   var file = req.path.match(/[a-zA-Z]+.js/g);
+   res.sendFile( __dirname + "/client/" + file );
+})
+
+app.get('/css/*',  function (req, res) {
+   var file = req.path.match(/[a-zA-Z]+.css/g);
+   res.sendFile( __dirname + "/client/" + file );
 })
 
 io.on('connection', function(socket){
