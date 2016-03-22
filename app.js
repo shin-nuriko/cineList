@@ -11,7 +11,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 var cine = require('./getlist.js')
 app.use(express.static('public'));
-app.use(multer({ dest: './public/images/'}).single('poster'));
+app.use(multer({ dest: '/tmp/'}).single('poster'));
 
 //app.use(cine.cineList);
 
@@ -38,28 +38,19 @@ app.get('/css/*',  function (req, res) {
 })
 
 app.post('/new_show', urlencodedParser, function (req, res) {
-console.log(req.file);
-
-   var file = __dirname + "/" + req.file.originalname;
+   var file = __dirname + "/public/images/" + req.file.originalname;
    fs.readFile( req.file.path, function (err, data) {
         fs.writeFile(file, data, function (err) {
-         if( err ){
+        if( err ){
               console.log( err );
-         }else{
-               response = {
-			       title:req.body.title,
-			       line0:req.body.line0,
-			       line1:req.body.line1,
-			       line2:req.body.line2,
-			       line3:req.body.line3,
-                   poster:req.file.filename
-              };
-          }
-       });
-   });
-
-		console.log( response );
-        res.end( JSON.stringify( response ) );
+            }else{
+            	var new_list = cine.cineNew(req);
+            	console.log('forwarded response');
+            	io.emit('cine list', new_list);
+            	res.send( new_list ); //updated list
+            }
+        });
+    });
 });
 
 io.on('connection', function(socket){
