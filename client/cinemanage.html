@@ -10,7 +10,22 @@
 		<link rel="stylesheet" href="/css/cinemanage.css">		
 	</head>
 	<body>
-		<div id="top"></div>
+		<div id="top">
+			<div class="add_show">
+				<div class="title">Add new show</div>
+				<form action="new_show" method="post" enctype="multipart/form-data">
+					<table>
+						<tr><td>Title</td><td><input name="title"></td></tr>
+						<tr><td>Line 1</td><td><input name="line0"></td></tr>
+						<tr><td>Line 2</td><td><input name="line1"></td></tr>
+						<tr><td>Line 3</td><td><input name="line2"></td></tr>
+						<tr><td>Line 4</td><td><input name="line3"></td></tr>
+						<tr><td>Poster</td><td><input type="file" name="poster"></td></tr>
+					</table>
+					<div><input type="submit" value="Add New" /></div>
+				</form>
+			</div>
+		</div>
 		<div id="bottom">
 			<div class="shows_list">
 			</div>

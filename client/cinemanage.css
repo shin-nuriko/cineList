@@ -23,6 +23,7 @@ body {
 
 .show {
     display: -webkit-inline-box;
+    display: -moz-inline-box;
     float: left;
     margin: 3px;
     padding: 5px;
@@ -72,4 +73,20 @@ input[type="submit"] {
 
 .shows_list>.item:nth-child(even) {
     background: #eef;
+}
+
+#top {
+    margin: 10px;
+    background: #eee;
+    max-width: 700px;
+    padding: 15px;
+    padding-bottom: 30px;
+    border-bottom: #999;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+#bottom {
+    margin: 10px;
+    padding: 10px;
 }

@@ -2,9 +2,16 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var bodyParser = require('body-parser');
+var multer  = require('multer'); 
+var fs = require("fs");
+
+// Create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 var cine = require('./getlist.js')
 app.use(express.static('public'));
+app.use(multer({ dest: './public/images/'}).single('poster'));
 
 //app.use(cine.cineList);
 
@@ -30,12 +37,34 @@ app.get('/css/*',  function (req, res) {
    res.sendFile( __dirname + "/client/" + file );
 })
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-  console.log(cine.cineList())
-  io.emit('cine list', cine.cineList());
+app.post('/new_show', urlencodedParser, function (req, res) {
+console.log(req.file);
+
+   var file = __dirname + "/" + req.file.originalname;
+   fs.readFile( req.file.path, function (err, data) {
+        fs.writeFile(file, data, function (err) {
+         if( err ){
+              console.log( err );
+         }else{
+               response = {
+			       title:req.body.title,
+			       line0:req.body.line0,
+			       line1:req.body.line1,
+			       line2:req.body.line2,
+			       line3:req.body.line3,
+                   poster:req.file.filename
+              };
+          }
+       });
+   });
+
+		console.log( response );
+        res.end( JSON.stringify( response ) );
 });
 
+io.on('connection', function(socket){
+  io.emit('cine list', cine.cineList());
+});
 
 http.listen(8081, function () {
 
