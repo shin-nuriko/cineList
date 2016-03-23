@@ -57,11 +57,12 @@ io.on('connection', function(socket){
   io.emit('cine list', cine.cineList());
 });
 
-http.listen(8081, function () {
+app.set('port', (process.env.PORT || 5000));
+http.listen(app.get('port'), function () {
 
   var host = http.address().address
   var port = http.address().port
 
-  console.log("Example app listening at http://%s:%s", host, port)
+  console.log("Example app listening at http://%s:%s", host, app.get('port'))
 
 })
