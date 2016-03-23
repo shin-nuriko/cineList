@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 		<title>Manage Now Showing</title>
-		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="/js/cinemanage.js"></script>
@@ -13,14 +13,14 @@
 		<div id="top">
 			<div class="add_show">
 				<div class="title">Add new show</div>
-				<form action="new_show" method="post" enctype="multipart/form-data">
+				<form id="addShow" action="new_show" method="post" enctype="multipart/form-data">
 					<table>
-						<tr><td>Title</td><td><input name="title"></td></tr>
-						<tr><td>Line 1</td><td><input name="line0"></td></tr>
-						<tr><td>Line 2</td><td><input name="line1"></td></tr>
-						<tr><td>Line 3</td><td><input name="line2"></td></tr>
-						<tr><td>Line 4</td><td><input name="line3"></td></tr>
-						<tr><td>Poster</td><td><input type="file" name="poster"></td></tr>
+						<tr><td>Title</td><td><input id="ntitle" name="title"></td></tr>
+						<tr><td>Line 1</td><td><input id="nline0" name="line0"></td></tr>
+						<tr><td>Line 2</td><td><input id="nline1" name="line1"></td></tr>
+						<tr><td>Line 3</td><td><input id="nline2" name="line2"></td></tr>
+						<tr><td>Line 4</td><td><input id="nline3" name="line3"></td></tr>
+						<tr><td>Poster</td><td><input id="poster" type="file" name="poster"></td></tr>
 					</table>
 					<div><input type="submit" value="Add New" /></div>
 				</form>

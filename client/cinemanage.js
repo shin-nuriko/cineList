@@ -2,6 +2,7 @@ var socket = io();
 
 var saveList = function(list) {
 	var hidden_list = JSON.stringify(list);
+	$("#hiddenlist").text('');//clear first
 	$("#hiddenlist").text(hidden_list);
 }
 
@@ -12,12 +13,11 @@ var getList = function() {
 
 var displayManageList = function() {
 	var list = getList();
-
+	$(".shows_list").text('');//clear first
 	for(var item in list) {
 		var show = eval("list." + item);
 		displayItem( show );
 	}
-
 }
 
 //rewrite to use a templating system 
@@ -99,5 +99,30 @@ $( document ).ready(function() {
 		displayManageList();
 	});
 
+	$("#addShow").submit( function() {
+		var formData = new FormData($(this));
+		formData.append('title', $(this)[0].ntitle.value);
+		formData.append('line0', $(this)[0].line0.value);
+		formData.append('line1', $(this)[0].line1.value);
+		formData.append('line2', $(this)[0].line2.value);
+		formData.append('line3', $(this)[0].line3.value);
+		formData.append('poster', $(this)[0].poster.files[0]);
+		$.ajax({
+		    url: 'new_show',
+		    type: 'POST',
+		    data: formData,
+		    async: false,
+		    success: function (data) {
+		    	$("#addShow")[0].reset();
+		        saveList( JSON.parse(data) );
+				displayManageList();
+		    },
+		    cache: false,
+		    contentType: false,
+		    processData: false
+		});
+		event.preventDefault();
+		return false;		
+	});
 
-});
+});//document ready
