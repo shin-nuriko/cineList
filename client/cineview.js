@@ -27,7 +27,18 @@ var loadCineList = function() {
   }
   imgName = loadImages(posters);
   saveList(rotateList(list));
+  updateTicker(list);
 };
+
+var updateTicker = function(list) {
+	var tickerText = '';
+	$(".ticker").text('');
+	for(var tick in list.cine0.text ){
+		eval("tickerText += list.cine0.text." + tick);
+		tickerText += '   ';
+	}
+	$(".ticker").text(tickerText);
+}
 
 var rotateList = function(list) {
 	var newlist = {};
