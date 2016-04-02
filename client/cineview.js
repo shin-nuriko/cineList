@@ -1,7 +1,17 @@
 var socket = io();
 
 var saveList = function(list) {
-	var hidden_list = JSON.stringify(list);
+    var ctr = 0;
+	var newlist = {};
+
+	for(var item in list) {
+		if (ctr < 4) { //we just need for. should make this configurable
+			eval('newlist.cine' + ctr + ' = list.' + item);
+			ctr++;
+		}
+	}
+
+	var hidden_list = JSON.stringify(newlist);
 	$("#hiddenlist").text(hidden_list);
 }
 
@@ -53,7 +63,7 @@ socket.on('cine list', function(msg){
 		saveList(cineList);
 		loadCineList();
 
-		setInterval('loadCineList()', 60000);
+		setInterval('loadCineList()', 30000);
 
 });
 

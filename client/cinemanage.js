@@ -1,8 +1,18 @@
 var socket = io();
 
 var saveList = function(list) {
+    var ctr = 0;
+	var newlist = {};
+
+	for(var item in list) {
+		if (ctr < 4) { //we just need for. should make this configurable
+			eval('newlist.cine' + ctr + ' = list.' + item);
+			ctr++;
+		}
+	}
+
+	var hidden_list = JSON.stringify(newlist);
 	var hidden_list = JSON.stringify(list);
-	$("#hiddenlist").text('');//clear first
 	$("#hiddenlist").text(hidden_list);
 }
 
